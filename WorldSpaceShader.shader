@@ -1,4 +1,4 @@
-﻿Shader "Custom/NewSurfaceShader 4"
+﻿Shader "Custom/WorldSpaceShader"
 {
     Properties
     {
@@ -47,31 +47,6 @@
             o.Smoothness = _Glossiness;
             o.Alpha = c.a;
         }
-        //void vert(inout appdata_full v) {
-
-        //    // Get the worldspace normal after transformation, and ensure it's unit length.
-        //    float3 n = normalize(mul(unity_ObjectToWorld, v.normal).xyz);
-
-        //    // Pick a direction for our texture's vertical "v" axis. 
-        //    // Default for floors/ceilings:
-        //    float3 vDirection = float3(0, 0, 1);
-
-        //    // For non-horizontal planes, we'll choose
-        //    // the closest vector in the polygon's plane to world up.
-        //    if (abs(n.y) < 1.0f) {
-        //        vDirection = normalize(float3(0, 1, 0) - n.y * n);
-        //    }
-
-        //    // Get the perpendicular in-plane vector to use as our "u" direction.
-        //    float3 uDirection = normalize(cross(n, vDirection));
-
-        //    // Get the position of the vertex in worldspace.
-        //    float3 worldSpace = mul(unity_ObjectToWorld, v.vertex).xyz;
-
-        //    // Project the worldspace position of the vertex into our texturing plane,
-        //    // and use this result as the primary texture coordinate.
-        //    v.texcoord.xy = float2(dot(worldSpace, uDirection), dot(worldSpace, vDirection));
-        //}
         void vert(inout appdata_full v) {
 
             // Get the worldspace normal after transformation, and ensure it's unit length.
